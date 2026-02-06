@@ -18,5 +18,12 @@ services:
       - 12345:12345
       - 4317:4317
       - 4318:4318
+    volumes:
+      - ./logs:/app/logs:ro
+      # Mounts the Docker daemon socket from the host into the container as read-only.
+      # This allows Alloy to communicate with the Docker daemon to discover containers,
+      # inspect their metadata, and read logs from Docker containers.
+      # Required for Alloy's Docker service discovery and log collection features.
+      - /var/run/docker.sock:/var/run/docker.sock:ro 
     env_file:
       - .env
