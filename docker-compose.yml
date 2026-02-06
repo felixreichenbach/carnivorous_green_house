@@ -7,6 +7,17 @@ services:
     ports: 
       - 5005:5005
     volumes:
-      - ./logs:/app/logs/ 
+      - ./logs:/app/logs/
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://alloy:4318
   
-    
+  alloy:
+    build:
+      context: .
+      dockerfile: Dockerfile.alloy
+    ports:
+      - 12345:12345
+      - 4317:4317
+      - 4318:4318
+    env_file:
+      - .env
