@@ -1,2 +1,6 @@
 /.venv
+/venv
 logs
+.secrets
+.env
+/instance
