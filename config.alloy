@@ -1,0 +1,10 @@
+remotecfg {
+  url = env("GCLOUD_FM_URL")
+  
+  basic_auth {
+    username = env("GCLOUD_FM_HOSTED_ID")
+    password = env("GCLOUD_RW_API_KEY")
+  }
+  
+  id = constants.hostname
+}
