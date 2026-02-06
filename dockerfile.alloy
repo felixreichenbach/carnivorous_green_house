@@ -1,0 +1,10 @@
+FROM grafana/alloy:latest
+
+# Copy the config file into the container
+COPY config.alloy /etc/alloy/config.alloy
+
+# Expose the port
+EXPOSE 12345
+
+# Set the default command
+CMD ["run", "--server.http.listen-addr=0.0.0.0:12345", "--storage.path=/var/lib/alloy/data", "/etc/alloy/config.alloy"]
